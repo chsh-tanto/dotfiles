@@ -1,3 +1,4 @@
+;;; ...  -*- lexical-binding: t -*-
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -15,7 +16,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(org-beautify-theme babel typescript-mode pdf-tools go-mode powershell jedi web-beautify htmlize graphql-mode markdown-mode yaml-mode yaml zenburn-theme)))
+   '(org-beautify-theme babel typescript-mode go-mode powershell jedi web-beautify htmlize graphql-mode markdown-mode yaml-mode yaml zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -53,13 +54,22 @@
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
 
-;; PDF VIEW MODE
-(require 'pdf-tools)
-(add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
-(add-hook 'pdf-view-mode-hook #'pdf-tools-enable-minor-modes)
+;; ;; PDF VIEW MODE
+;; (require 'pdf-tools)
+;; (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
+;; (add-hook 'pdf-view-mode-hook #'pdf-tools-enable-minor-modes)
 
 ;; ANSI COLOURS
 (require 'ansi-color)
 (defun display-ansi-colors ()
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
+
+;; EGLOT
+(use-package eglot
+  :ensure nil 
+  :hook
+  ((python-mode-hook python-ts-mode-hook) . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs
+               '((python-mode python-ts-mode) . ("ruff" "server"))))

@@ -1,0 +1,3 @@
+xrandr --newmode "5120x1440_60.00"  469.75  5120 5312 5840 6560  1440 1443 1453 1488 -hsync +vsync
+xrandr --addmode DP-1-1-6 "5120x1440_60.00"
+xrandr --output DP-1-1-6 --mode "5120x1440_60.00"

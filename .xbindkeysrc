@@ -1,7 +1,7 @@
 # Increase screen brightness
-"brightnessctl s 1763+"
-    m:0x0 + c:233
+"brightnessctl set +5%"
+    XF86MonBrightnessUp
 
 # Decrease screen brightness
-"brightnessctl s 1763-"
-    m:0x0 + c:232
+"brightnessctl set 5%-"
+    XF86MonBrightnessDown
