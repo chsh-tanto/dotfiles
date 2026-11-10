@@ -1,6 +1,0 @@
-monitor.libcamera.rules = [
-  {
-    matches = [ { device.name = "~libcamera_device.*" } ]
-    actions = { update-props = { device.disabled = true } }
-  }
-]
