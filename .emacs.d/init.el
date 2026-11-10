@@ -16,7 +16,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(org-beautify-theme babel typescript-mode go-mode powershell jedi web-beautify htmlize graphql-mode markdown-mode yaml-mode yaml zenburn-theme)))
+   '(babel company go-mode graphql-mode htmlize jedi markdown-mode
+	   org-beautify-theme powershell typescript-mode web-beautify
+	   yaml yaml-mode yasnippet zenburn-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -73,3 +75,12 @@
   :config
   (add-to-list 'eglot-server-programs
                '((python-mode python-ts-mode) . ("ruff" "server"))))
+
+;; TYPST
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(load "typst")
+
+;; YASNIPPETS
+
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+(yas-global-mode 1)

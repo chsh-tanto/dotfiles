@@ -24,4 +24,9 @@ if [ -f "$usermodmap" ]; then
 fi
 
 xbindkeys
+# export XDG_CURRENT_DESKTOP=stumpwm
+# systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
+export EDITOR=emacs
+dunst &
+flameshot &
 exec stumpwm

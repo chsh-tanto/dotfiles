@@ -21,7 +21,8 @@
 (define-key *root-map* (kbd "C-c") "exec WINIT_X11_SCALE_FACTOR=2 alacritty")
 ;; Shell
 (define-key *root-map* (kbd "n") "exec")
-
+;; Flameshot
+(define-key *root-map* (kbd "C-x") "exec flameshot gui")
 
 ;; Message window font
 (set-font "-xos4-terminus-large-r-normal--14-140-72-72-c-80-iso8859-15")

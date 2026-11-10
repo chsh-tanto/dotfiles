@@ -15,3 +15,4 @@ PS1='[\u@\h \W]\$ '
 PATH="/home/chsh/.local/bin:$PATH"
 
 source '/home/chsh/.bash_completions/tantoreport.sh'
+
